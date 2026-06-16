@@ -215,13 +215,13 @@ TOP、PRODUCTS
   text-align: center;
 }
 
-.pagination {
+.pagination-wrapper .page-numbers {
   display: flex;
   justify-content: center; /* 要素を水平方向の「中央」に寄せるプロパティ */
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
-.pagination li {
+.pagination-wrapper .page-numbers li {
   padding: 0 20px; /* 上下は0、左右に20pxの「内側の余白」を作るプロパティ */
 }
 
