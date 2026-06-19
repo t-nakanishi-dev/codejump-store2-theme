@@ -1,0 +1,29 @@
+name: Deploy store2-theme to ConoHa
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Upload files via SCP
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.PORT }}
+
+          source:"**"
+          exclude:".git*,.github*,node_modules*"
+
+          target:"/home/c0522930/public_html/codejump-store2.t-nakanishi-dev.com/wp-content/themes/store2-theme"
+
+          strip_components: 0
